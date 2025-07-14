@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ONLY Health</title>
+    <style>
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        header img {
+            height: 200px;
+            margin-right: 15px;
+        }
+        header h1 {
+            font-size: 4rem;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .lang-btns {
+            display: flex;
+            justify-content: flex-end;
+            margin: 20px;
+        }
+        .lang-btns button {
+            font-size: 1rem;
+            margin-left: 10px;
+            padding: 8px 16px;
+            cursor: pointer;
+            background-color: #90ee90; /* Light green */
+            border: none;
+            border-radius: 5px;
+            color: #222;
+            transition: background 0.2s;
+        }
+        .lang-btns button:hover {
+            background-color: #7ed957; /* Slightly darker green on hover */
+        }
+        body[dir="rtl"] {
+            text-align: right;
+        }
+    </style>
+    <script>
+        const content = {
+            en: {
+                header: "ONLY Health",
+                about: "About the company",
+                paragraph: "ONLY Health is dedicated to providing high-quality healthcare services focused on patient wellbeing and satisfaction. Our team of experienced professionals offers personalized care, innovative treatments, and a welcoming environment for all. We believe in transparency, compassion, and putting health first—ensuring every individual receives the attention and support they deserve. At ONLY Health, your health is our only priority.",
+                services: "Our Services",
+                list: [
+                    "General Health Checkups",
+                    "Home Healthcare: Skilled nursing, elderly care, and rehabilitation services delivered in the comfort of your home.",
+                    "Diagnostics Testing: On-site and at-home diagnostic services including blood work, ECG, and more.",
+                    "Medication Management: Assistance with prescriptions, reminders, and monitoring for better health outcomes.",
+                    "Personalized Treatment Plans"
+                ],
+                whyChooseUs: "Why Choose Us",
+                reasons: [
+                    "✅ 24/7 Availability\nWe’re always here for you, day or night.",
+                    "✅ Personalized Care Plans\nEvery patient receives tailored care based on their unique needs."
+                ],
+                partners: "Partners and Affiliates",
+                partnersList: [
+                    "Global Health Network",
+                    "WellCare Medical Group",
+                    "LifeCare Hospitals",
+                    "MedTech Solutions"
+                ]
+            },
+            ar: {
+                header: "الصحة فقط",
+                about: "عن الشركة",
+                paragraph: "تكرس شركة الصحة فقط جهودها لتقديم خدمات رعاية صحية عالية الجودة تركز على رفاهية ورضا المرضى. يقدم فريقنا من المهنيين ذوي الخبرة رعاية شخصية وعلاجات مبتكرة وبيئة ترحيبية للجميع. نحن نؤمن بالشفافية والتعاطف ووضع الصحة أولاً، لضمان حصول كل فرد على الاهتمام والدعم الذي يستحقه. في الصحة فقط، صحتك هي أولويتنا الوحيدة.",
+                services: "خدماتنا",
+                list: [
+                    "فحوصات الصحة العامة",
+                    "الرعاية الصحية المنزلية: تمريض متخصص، رعاية كبار السن، وخدمات إعادة التأهيل في راحة منزلك.",
+                    "الفحوصات التشخيصية: خدمات تشخيصية في الموقع والمنزل تشمل تحاليل الدم وتخطيط القلب والمزيد.",
+                    "إدارة الأدوية: المساعدة في الوصفات الطبية والتذكير والمتابعة لتحقيق نتائج صحية أفضل.",
+                    "خطط علاجية مخصصة"
+                ],
+                whyChooseUs: "لماذا تختارنا",
+                reasons: [
+                    "✅ متوفرون على مدار الساعة\nنحن دائمًا هنا من أجلك، ليلاً ونهارًا.",
+                    "✅ خطط رعاية شخصية\nكل مريض يتلقى رعاية مصممة حسب احتياجاته الفريدة."
+                ],
+                partners: "الشركاء والجهات التابعة",
+                partnersList: [
+                    "شبكة الصحة العالمية",
+                    "مجموعة ويل كير الطبية",
+                    "مستشفيات لايف كير",
+                    "حلول ميدتك"
+                ]
+            }
+        };
+
+        function setLanguage(lang) {
+            document.documentElement.lang = lang;
+            document.body.dir = lang === "ar" ? "rtl" : "ltr";
+            document.getElementById("main-header").textContent = content[lang].header;
+            document.getElementById("about-header").textContent = content[lang].about;
+            document.getElementById("about-paragraph").textContent = content[lang].paragraph;
+            document.getElementById("services-header").textContent = content[lang].services;
+            const list = document.getElementById("services-list");
+            list.innerHTML = "";
+            content[lang].list.forEach(item => {
+                const li = document.createElement("li");
+                li.style.marginBottom = "16px";
+                li.textContent = item;
+                list.appendChild(li);
+            });
+            document.getElementById("why-choose-us-header").textContent = content[lang].whyChooseUs;
+            const reasonsList = document.getElementById("reasons-list");
+            reasonsList.innerHTML = "";
+            content[lang].reasons.forEach(item => {
+                const li = document.createElement("li");
+                li.style.marginBottom = "16px";
+                li.innerHTML = item.replace(/\n/g, "<br>");
+                reasonsList.appendChild(li);
+            });
+            document.getElementById("partners-header").textContent = content[lang].partners;
+            const partnersList = document.getElementById("partners-list");
+            partnersList.innerHTML = "";
+            content[lang].partnersList.forEach(item => {
+                const li = document.createElement("li");
+                li.style.marginBottom = "16px";
+                li.textContent = item;
+                partnersList.appendChild(li);
+            });
+        }
+
+        window.onload = function() {
+            setLanguage("en");
+        };
+    </script>
+</head>
+<body>
+    <div class="lang-btns">
+        <button onclick="setLanguage('en')">English</button>
+        <button onclick="setLanguage('ar')">العربية</button>
+    </div>
+    <header>
+        <img src="image.png" alt="Logo featuring an abstract teal and dark blue figure resembling a person with outstretched arms forming a heart shape. Below the logo, the text reads ONLY HEALTH in bold letters and Just Health Nothing Else in smaller letters. The design is set on a white background, conveying a sense of calm, freshness, and wellbeing. The overall tone is welcoming and positive.">
+        <div>
+            <h1 id="main-header">ONLY Health</h1>
+        </div>
+    </header>
+    <h2 id="about-header" style="font-size:2.5rem; font-weight:normal; color:#000000; margin-top:30px;">
+        About the company
+    </h2>
+    <p id="about-paragraph" style="font-size:1.2rem; color:#333; max-width:700px;">
+        ONLY Health is dedicated to providing high-quality healthcare services focused on patient wellbeing and satisfaction. Our team of experienced professionals offers personalized care, innovative treatments, and a welcoming environment for all. We believe in transparency, compassion, and putting health first—ensuring every individual receives the attention and support they deserve. At ONLY Health, your health is our only priority.
+    </p>
+    <img src="medicine.jpg" alt="Medicine image" style="float:right; width:500px; height:320px; object-fit:cover; margin-top:30px; margin-left:30px;">
+    <h2 id="services-header" style="font-size:2rem; color:#000; margin-top:40px;">Our Services</h2>
+    <ul id="services-list" style="font-size:1.2rem; color:#333; max-width:700px; list-style-position:inside;">
+        <li style="margin-bottom:16px;">General Health Checkups</li>
+        <li style="margin-bottom:16px;">Home Healthcare: Skilled nursing, elderly care, and rehabilitation services delivered in the comfort of your home.</li>
+        <li style="margin-bottom:16px;">Diagnostics Testing: On-site and at-home diagnostic services including blood work, ECG, and more.</li>
+        <li style="margin-bottom:16px;">Medication Management: Assistance with prescriptions, reminders, and monitoring for better health outcomes.</li>
+        <li style="margin-bottom:16px;">Personalized Treatment Plans</li>
+    </ul>
+    <h2 style="font-size:2rem; color:#000; margin-top:40px;">Why Choose Us</h2>
+    <ul style="font-size:1.2rem; color:#333; max-width:700px; list-style-position:inside;">
+        <li style="margin-bottom:16px;">Experienced and compassionate healthcare professionals</li>
+        <li style="margin-bottom:16px;">Personalized care tailored to each patient’s needs</li>
+    </ul>
+    <h2 id="partners-header" style="font-size:2rem; color:#000; margin-top:40px;">Partners and Affiliates</h2>
+    <ul id="partners-list" style="font-size:1.2rem; color:#333; max-width:700px; list-style-position:inside;">
+        <li style="margin-bottom:16px;">Global Health Network</li>
+        <li style="margin-bottom:16px;">WellCare Medical Group</li>
+        <li style="margin-bottom:16px;">LifeCare Hospitals</li>
+        <li style="margin-bottom:16px;">MedTech Solutions</li>
+    </ul>
+</body>
+</html>
