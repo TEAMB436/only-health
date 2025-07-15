@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ONLY Health</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 25%, #2196f3 50%, #1976d2 75%, #0d47a1 100%);
+            background-attachment: fixed;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(13, 71, 161, 0.2);
+        }
+        header img {
+            height: 200px;
+            margin-right: 15px;
+        }
+        header h1 {
+            font-size: 4rem;
+            margin: 0;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            background: linear-gradient(45deg, #1976d2, #00bcd4, #4caf50);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .lang-btns {
+            display: flex;
+            justify-content: flex-end;
+            margin: 20px;
+        }
+        .lang-btns button {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            font-size: 1rem;
+            margin-left: 10px;
+            padding: 12px 24px;
+            cursor: pointer;
+            background: linear-gradient(45deg, #00e676, #00bcd4);
+            border: none;
+            border-radius: 25px;
+            color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 230, 118, 0.3);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        .lang-btns button:hover {
+            background: linear-gradient(45deg, #00bcd4, #00e676);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 188, 212, 0.4);
+        }
+        body[dir="rtl"] {
+            text-align: right;
+        }
+        h2 {
+            background: transparent;
+            padding: 15px 20px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: #ffffff;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+            letter-spacing: 0.5px;
+            border-left: 4px solid #00e676;
+            margin-left: 10px;
+        }
+        p {
+            background: transparent;
+            padding: 15px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            color: #f8f9fa;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+        ul {
+            background: transparent;
+            padding: 15px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            color: #e8f5e8;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+        }
+        li {
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+            line-height: 1.5;
+        }
+        #main-header {
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 5px rgba(25, 118, 210, 0.5)); }
+            to { filter: drop-shadow(0 0 20px rgba(0, 188, 212, 0.8)); }
+        }
+    </style>
+    <script>
+        const content = {
+            en: {
+                header: "ONLY Health",
+                about: "About the company",
+                paragraph: "ONLY Health is dedicated to providing high-quality healthcare services focused on patient wellbeing and satisfaction. Our team of experienced professionals offers personalized care, innovative treatments, and a welcoming environment for all. We believe in transparency, compassion, and putting health first—ensuring every individual receives the attention and support they deserve. At ONLY Health, your health is our only priority.",
+                services: "Our Services",
+                list: [
+                    "General Health Checkups",
+                    "Home Healthcare: Skilled nursing, elderly care, and rehabilitation services delivered in the comfort of your home.",
+                    "Diagnostics Testing: On-site and at-home diagnostic services including blood work, ECG, and more.",
+                    "Medication Management: Assistance with prescriptions, reminders, and monitoring for better health outcomes.",
+                    "Personalized Treatment Plans"
+                ],
+                whyChooseUs: "Why Choose Us",
+                reasons: [
+                    "✅ 24/7 Availability\nWe’re always here for you, day or night.",
+                    "✅ Personalized Care Plans\nEvery patient receives tailored care based on their unique needs."
+                ],
+                partners: "Partners and Affiliates",
+                partnersList: [
+                    "🏥 Hospitals & Clinics",
+                    "💊 Pharmaceutical & Labs",
+                    "🛡️ Insurance Providers\nWorking with MedSure, Allianz, AXA",
+                    "🎓 Educational Institutions"
+                ],
+                healthBlog: "Health Blog: How to Improve Your Immune System",
+                location: "Our Location",
+                contact: "Contact Us",
+                locationText: "📍 123 Health Street, Medical District<br>Cairo, Egypt 12345",
+                contactText: "Phone: +20 123 456 789<br>Hotline: 16543 - Available 24/7",
+                healthBlogList: [
+                    {
+                        title: "Health Tips",
+                        items: ["Eat a Balanced Diet", "Get Adequate Sleep", "Stay Hydrated"]
+                    },
+                    {
+                        title: "Avoid Smoking & Limit Alcohol",
+                        items: ["Quit Smoking Programs", "Alcohol Moderation Tips", "Healthy Alternatives"]
+                    },
+                    {
+                        title: "Prioritize Quality Sleep",
+                        items: ["Sleep Schedule", "Sleep Environment", "Sleep Hygiene"]
+                    }
+                ]
+            },
+            ar: {
+                header: "الصحة فقط",
+                about: "عن الشركة",
+                paragraph: "تكرس شركة الصحة فقط جهودها لتقديم خدمات رعاية صحية عالية الجودة تركز على رفاهية ورضا المرضى. يقدم فريقنا من المهنيين ذوي الخبرة رعاية شخصية وعلاجات مبتكرة وبيئة ترحيبية للجميع. نحن نؤمن بالشفافية والتعاطف ووضع الصحة أولاً، لضمان حصول كل فرد على الاهتمام والدعم الذي يستحقه. في الصحة فقط، صحتك هي أولويتنا الوحيدة.",
+                services: "خدماتنا",
+                list: [
+                    "فحوصات الصحة العامة",
+                    "الرعاية الصحية المنزلية: تمريض متخصص، رعاية كبار السن، وخدمات إعادة التأهيل في راحة منزلك.",
+                    "الفحوصات التشخيصية: خدمات تشخيصية في الموقع والمنزل تشمل تحاليل الدم وتخطيط القلب والمزيد.",
+                    "إدارة الأدوية: المساعدة في الوصفات الطبية والتذكير والمتابعة لتحقيق نتائج صحية أفضل.",
+                    "خطط علاجية مخصصة"
+                ],
+                whyChooseUs: "لماذا تختارنا",
+                reasons: [
+                    "✅ متوفرون على مدار الساعة\nنحن دائمًا هنا من أجلك، ليلاً ونهارًا.",
+                    "✅ خطط رعاية شخصية\nكل مريض يتلقى رعاية مصممة حسب احتياجاته الفريدة."
+                ],
+                partners: "الشركاء والجهات التابعة",
+                partnersList: [
+                    "🏥 مستشفيات وعيادات",
+                    "💊 شركات الأدوية والمختبرات",
+                    "🛡️ شركات التأمين\nنتعامل مع ميدشور، أليانز، أكسا",
+                    "🎓 المؤسسات التعليمية"
+                ],
+                healthBlog: "مدونة الصحة: كيفية تقوية جهاز المناعة",
+                location: "موقعنا",
+                contact: "اتصل بنا",
+                locationText: "📍 123 شارع الصحة، المنطقة الطبية<br>القاهرة، مصر 12345",
+                contactText: "الهاتف: +20 123 456 789<br>الخط الساخن: 16543 - متاح 24/7",
+                healthBlogList: [
+                    {
+                        title: "نصائح صحية",
+                        items: ["تناول نظام غذائي متوازن", "احصل على نوم كافٍ", "حافظ على الترطيب"]
+                    },
+                    {
+                        title: "تجنب التدخين وتقليل الكحول",
+                        items: ["برامج الإقلاع عن التدخين", "نصائح لتقليل الكحول", "بدائل صحية"]
+                    },
+                    {
+                        title: "أولوية النوم الجيد",
+                        items: ["جدول النوم", "بيئة النوم", "نظافة النوم"]
+                    }
+                ]
+            }
+        };
+
+        function setLanguage(lang) {
+            document.documentElement.lang = lang;
+            document.body.dir = lang === "ar" ? "rtl" : "ltr";
+            document.getElementById("main-header").textContent = content[lang].header;
+            document.getElementById("about-header").textContent = content[lang].about;
+            document.getElementById("about-paragraph").textContent = content[lang].paragraph;
+            document.getElementById("services-header").textContent = content[lang].services;
+            const list = document.getElementById("services-list");
+            list.innerHTML = "";
+            content[lang].list.forEach(item => {
+                const li = document.createElement("li");
+                li.style.marginBottom = "16px";
+                li.textContent = item;
+                list.appendChild(li);
+            });
+            document.getElementById("why-choose-us-header").textContent = content[lang].whyChooseUs;
+            const reasonsList = document.getElementById("reasons-list");
+            reasonsList.innerHTML = "";
+            content[lang].reasons.forEach(item => {
+                const li = document.createElement("li");
+                li.style.marginBottom = "16px";
+                li.innerHTML = item.replace(/\n/g, "<br>");
+                reasonsList.appendChild(li);
+            });
+            document.getElementById("partners-header").textContent = content[lang].partners;
+            const partnersList = document.getElementById("partners-list");
+            partnersList.innerHTML = "";
+            content[lang].partnersList.forEach(item => {
+                const li = document.createElement("li");
+                li.style.marginBottom = "16px";
+                li.innerHTML = item.replace(/\n/g, "<br>");
+                partnersList.appendChild(li);
+            });
+            document.getElementById("health-blog-header").textContent = content[lang].healthBlog;
+            document.getElementById("location-header").textContent = content[lang].location;
+            document.getElementById("contact-header").textContent = content[lang].contact;
+            const healthBlogList = document.getElementById("health-blog-list");
+            healthBlogList.innerHTML = "";
+            content[lang].healthBlogList.forEach(section => {
+                const li = document.createElement("li");
+                li.style.marginBottom = "16px";
+                li.innerHTML = section.title;
+                const subList = document.createElement("ul");
+                subList.style.marginTop = "8px";
+                section.items.forEach(item => {
+                    const subLi = document.createElement("li");
+                    subLi.textContent = item;
+                    subList.appendChild(subLi);
+                });
+                li.appendChild(subList);
+                healthBlogList.appendChild(li);
+            });
+            document.getElementById("location-text").innerHTML = content[lang].locationText;
+            document.getElementById("contact-text").innerHTML = content[lang].contactText;
+        }
+
+        window.onload = function() {
+            setLanguage("en");
+        };
+    </script>
+</head>
+<body>
+    <div class="lang-btns">
+        <button onclick="setLanguage('en')">English</button>
+        <button onclick="setLanguage('ar')">العربية</button>
+    </div>
+    <header>
+        <img src="image.png" alt="Logo featuring an abstract teal and dark blue figure resembling a person with outstretched arms forming a heart shape. Below the logo, the text reads ONLY HEALTH in bold letters and Just Health Nothing Else in smaller letters. The design is set on a white background, conveying a sense of calm, freshness, and wellbeing. The overall tone is welcoming and positive.">
+        <div>
+            <h1 id="main-header">ONLY Health</h1>
+        </div>
+    </header>
+    <h2 id="about-header" style="font-size:2.5rem; font-weight:normal; color:#000000; margin-top:30px;">
+        About the company
+    </h2>
+    <p id="about-paragraph" style="font-size:1.2rem; color:#333; max-width:700px;">
+        ONLY Health is dedicated to providing high-quality healthcare services focused on patient wellbeing and satisfaction. Our team of experienced professionals offers personalized care, innovative treatments, and a welcoming environment for all. We believe in transparency, compassion, and putting health first—ensuring every individual receives the attention and support they deserve. At ONLY Health, your health is our only priority.
+    </p>
+    <img src="medicine.jpg" alt="Medicine image" style="float:right; width:500px; height:450px; object-fit:cover; margin-top:-10px; margin-left:30px;">
+    <video controls autoplay loop style="float:right; width:600px; height:350px; margin-top:10px; margin-left:30px; clear:right;">
+        <source src="video1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <h2 id="services-header" style="font-size:2rem; color:#000; margin-top:40px;">Our Services</h2>
+    <ul id="services-list" style="font-size:1.2rem; color:#333; max-width:700px; list-style-position:inside;">
+        <li style="margin-bottom:16px;">General Health Checkups</li>
+        <li style="margin-bottom:16px;">Home Healthcare: Skilled nursing, elderly care, and rehabilitation services delivered in the comfort of your home.</li>
+        <li style="margin-bottom:16px;">Diagnostics Testing: On-site and at-home diagnostic services including blood work, ECG, and more.</li>
+        <li style="margin-bottom:16px;">Medication Management: Assistance with prescriptions, reminders, and monitoring for better health outcomes.</li>
+        <li style="margin-bottom:16px;">Personalized Treatment Plans</li>
+    </ul>
+    <h2 id="why-choose-us-header" style="font-size:2rem; color:#000; margin-top:40px;">Why Choose Us</h2>
+    <ul id="reasons-list" style="font-size:1.2rem; color:#333; max-width:700px; list-style-position:inside;">
+        <li style="margin-bottom:16px;">Experienced and compassionate healthcare professionals</li>
+        <li style="margin-bottom:16px;">Personalized care tailored to each patient’s needs</li>
+    </ul>
+    <h2 id="partners-header" style="font-size:2rem; color:#000; margin-top:40px;">Partners and Affiliates</h2>
+    <ul id="partners-list" style="font-size:1.2rem; color:#333; max-width:700px; list-style-position:inside;">
+        <li style="margin-bottom:16px;">Global Health Network</li>
+        <li style="margin-bottom:16px;">WellCare Medical Group</li>
+        <li style="margin-bottom:16px;">LifeCare Hospitals</li>
+        <li style="margin-bottom:16px;">MedTech Solutions</li>
+    </ul>
+    <h2 id="health-blog-header" style="font-size:2rem; color:#000; margin-top:40px;">Health Blog</h2>
+    <ul id="health-blog-list" style="font-size:1.2rem; color:#333; max-width:700px; list-style-position:inside;">
+        <li style="margin-bottom:16px;">Health Tips
+            <ul style="margin-top:8px;">
+                <li>Eat a Balanced Diet</li>
+                <li>Get Adequate Sleep</li>
+                <li>Stay Hydrated</li>
+            </ul>
+        </li>
+        <li style="margin-bottom:16px;">Avoid Smoking & Limit Alcohol
+            <ul style="margin-top:8px;">
+                <li>Quit Smoking Programs</li>
+                <li>Alcohol Moderation Tips</li>
+                <li>Healthy Alternatives</li>
+            </ul>
+        </li>
+        <li style="margin-bottom:16px;">Prioritize Quality Sleep
+            <ul style="margin-top:8px;">
+                <li>Sleep Schedule</li>
+                <li>Sleep Environment</li>
+                <li>Sleep Hygiene</li>
+            </ul>
+        </li>
+    </ul>
+    <video controls autoplay loop style="float:right; width:800px; height:450px; margin-top:-200px; margin-left:30px;">
+        <source src="video2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <h2 id="location-header" style="font-size:2rem; color:#000; margin-top:40px;">Our Location</h2>
+    <p id="location-text" style="font-size:1.2rem; color:#333; max-width:700px;">
+        📍 123 Health Street, Medical District<br>
+        Cairo, Egypt 12345
+    </p>
+    <h2 id="contact-header" style="font-size:2rem; color:#000; margin-top:40px;">Contact Us</h2>
+    <p id="contact-text" style="font-size:1.2rem; color:#333; max-width:700px;">
+        Phone: +20 123 456 789<br>
+        Hotline: 16543 - Available 24/7
+    </p>
+</body>
+</html>
